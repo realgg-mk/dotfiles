@@ -1,3 +1,8 @@
-.DS_Store
+# Editor / OS junk
 *.swp
 *.swo
+*~
+.DS_Store
+
+# Common cache folders (optional, safe)
+.cache/
