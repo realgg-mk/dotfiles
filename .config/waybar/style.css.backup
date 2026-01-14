@@ -1,0 +1,108 @@
+/* 1. L'importation CRUCIAL pour les thèmes */
+@import "theme.css";
+
+/* 2. Style global */
+* {
+    color: @texte; /* Utilise la variable texte */
+    border: 0;
+    padding: 0 0;
+    font-family: "MesloLGS Nerd Font Mono Regular";
+    font-size: 17px;
+    font-weight: 400;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0); /* Barre transparente */
+}
+
+/* 3. Les Workspaces (Espaces de travail) */
+#workspaces {
+    background-color: @fond; /* Couleur de fond dynamique */
+    border-radius: 10px;
+    margin: 10px 5px;
+    padding: 0 10px;
+    border: 0.8px solid @peach;
+}
+
+#workspaces button {
+    color: @texte;
+    margin: 1px 5px;
+    padding: 1px 1px;
+    background-color: transparent;
+}
+
+#workspaces button.focused {
+    color: @accent; /* Couleur de l'espace de travail actif */
+    border-bottom: 2px solid @accent;
+}
+
+#workspaces button:hover {
+    color: @accent;
+    background: none;
+}
+
+/* 4. Modules communs (CPU, Mémoire, Horloge, etc.) */
+#custom-appmenu,
+#custom-notification,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#tray {
+    padding: 0 10px;
+    background-color: @fond; /* Fond des capsules */
+    margin: 10px 5px;
+    border-radius: 10px;
+    border: 0.8px solid @sapphire;
+}
+
+/* 5. Couleurs spécifiques des ICÔNES et TEXTES */
+#clock { color: @lavender; }
+#cpu { color: @mauve; }
+#memory { color: @peach; }
+#pulseaudio { color: @yellow; }
+#temperature { color: @teal; }
+#tray { color: @texte; }
+#custom-appmenu {
+    margin-left: 15px;
+    padding: 0 15px;   
+}
+#custom-notification {
+    margin-right: 15px;
+    padding: 0 15px;
+    color: @lavender ;
+}
+
+/* 6. Cas spéciaux (Alertes) */
+#pulseaudio.muted { color: #585b70; }
+#temperature.critical { color: @red; }
+
+
+/* 7. Le module VPN (Sécurité) */
+#custom-vpn {
+    background-color: @fond;
+    color: @texte;
+    border-radius: 10px;
+    padding: 0 10px;
+    margin: 10px 5px;
+    font-weight: bold;
+}
+
+#custom-vpn.connected {
+    color: @accent;
+    border-bottom: 2px solid @accent;
+}
+
+#custom-vpn.disconnected {
+    color: @alerte;
+    border-bottom: 2px solid @alerte;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink { to { color: @fond; } }

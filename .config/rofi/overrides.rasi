@@ -1,0 +1,9 @@
+* {
+  background: transparent;
+}
+
+window {
+  transparency: "real";
+  background-color: #11182780; /* 50% */
+}
+

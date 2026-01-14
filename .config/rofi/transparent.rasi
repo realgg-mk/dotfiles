@@ -1,0 +1,18 @@
+* {
+  background: transparent;
+}
+
+window {
+  transparency: "real";
+  background-color: rgba(20, 20, 20, 0.45);
+  border-radius: 16px;
+}
+
+mainbox {
+  background-color: transparent;
+}
+
+listview, element, element-text, inputbar, entry {
+  background-color: transparent;
+}
+

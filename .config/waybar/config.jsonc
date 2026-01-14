@@ -1,0 +1,141 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 50,
+    "width": 1700,
+    "margin-top": 5,
+    "modules-left": [
+        "custom/arch",
+        "hyprland/workspaces",
+        "custom/cava",
+        "mpris",
+    ],
+    "modules-center": [
+        "clock",
+        "tray"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "custom/vpn",
+        "backlight",
+        "custom/updates",
+        "pulseaudio",
+        "custom/power"
+    ],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "◆",
+            "default": "○",
+            "1": "○",
+            "2": "○",
+            "3": "○",
+            "4": "○",
+            "5": "○",
+            "6": "○",
+            "7": "○",
+            "8": "○",
+            "9": "○",
+            "10": "○"
+        },
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+    "clock": {
+        "format": "{:%H:%M  %d/%m}",
+        "tooltip-format": "{:%A %d %B %Y}"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-icons": [
+            "󰕿",
+            "󰖀",
+            "󰕾"
+        ],
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "network": {
+        "format-wifi": "󰖩 {essid}",
+        "format-disconnected": "󰖪"
+    },
+    "cpu": {
+        "format": "󰻠 {usage}%",
+        "tooltip": false,
+        "on-click": "kitty -e btop"
+    },
+    "memory": {
+        "format": "󰍛 {}%",
+        "on-click": "kitty -e btop"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "󰖩",
+            "󰖨",
+            "󰖥",
+            "󰖤"
+        ]
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+    "mpris": {
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵",
+            "spotify": "",
+            "firefox": ""
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        "dynamic-len": 28,
+        "title-len": 28,
+        "artist-len": 20,
+        "album-len": 0,
+        "dynamic-order": [
+            "title",
+            "artist"
+        ],
+        "dynamic-separator": "    ",
+        "enable-tooltip-len-limits": true
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "wlogout --protocol layer-shell"
+    },
+    "custom/arch": {
+        "format": "<span color='#bd93f9' font='17'></span>  R C H", // Icône Arch
+        "tooltip": false,
+        "on-click": "~/.config/wofi/theme-selector.sh" // Change le chemin si nécessaire
+    },
+    "custom/vpn": {
+        "exec": "$HOME/.config/waybar/scripts/vpn.sh",
+        "return-type": "json",
+        "interval": 5,
+        "on-click": "expressvpnctl connect",
+        "on-click-right": "expressvpnctl disconnect"
+    },
+    "custom/updates": {
+        "exec": "~/.config/waybar/scripts/updates.sh",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "tooltip": true,
+        "on-click": "foot -e yay -Syu; pkill -RTMIN+8 waybar"
+    },
+    "custom/cava": {
+        "exec": "~/.config/waybar/scripts/cava.sh",
+        "return-type": "json",
+        "restart-interval": 0,
+        "tooltip": false,
+        "hide-empty-text": true
+    }
+}
