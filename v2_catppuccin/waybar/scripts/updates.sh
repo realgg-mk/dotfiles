@@ -1,16 +1,15 @@
 #!/bin/bash
 
-# On calcule les updates
-updates_arch=$(checkupdates 2>/dev/null | wc -l)
-updates_aur=$(yay -Qum 2>/dev/null | wc -l)
-updates=$((updates_arch + updates_aur))
+# Récupère la liste des paquets
+list=$(checkupdates)
+# Compte le nombre de lignes
+count=$(echo "$list" | wc -l)
 
-# On définit une classe CSS différente si c'est à jour ou non
-if [ "$updates" -gt 0 ]; then
-	class="pending"
+if [ "$count" -gt 0 ]; then
+  # On nettoie la liste pour le JSON (enlève les retours à la ligne)
+  tooltip=$(echo "$list" | sed ':a;N;$!ba;s/\n/\\n/g')
+  # On envoie le JSON à Waybar
+  echo "{\"text\":\"$count\", \"tooltip\":\"$tooltip\"}"
 else
-	class="updated"
+  echo "{\"text\":\"0\", \"tooltip\":\"Système à jour\"}"
 fi
-
-# On affiche TOUJOURS le JSON
-printf '{"text": "%s", "alt": "%s", "tooltip": "Mises à jour : %s", "class": "%s"}\n' "$updates" "$updates" "$updates" "$class"

@@ -147,3 +147,22 @@ window#waybar>box {
         0 0 10px rgba(203, 166, 247, 0.85),
         0 0 18px rgba(203, 166, 247, 0.45);
 }
+
+tooltip {
+    background: rgba(17, 17, 27, 0.9);
+    /* Fond sombre (Mocha Crust) */
+    border: 1px solid #cba6f7;
+    /* Bordure mauve Catppuccin */
+    border-radius: 10px;
+    /* Bords arrondis */
+}
+
+tooltip label {
+    color: #cdd6f4;
+    /* Texte clair (Mocha Text) */
+    padding: 8px;
+    /* Espacement interne */
+    font-family: "JetBrainsMono Nerd Font";
+    /* Ta police habituelle */
+    font-size: 13px;
+}
