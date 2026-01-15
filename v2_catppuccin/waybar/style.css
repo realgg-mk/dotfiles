@@ -1,0 +1,149 @@
+/* --- CONFIGURATION GÉNÉRALE --- */
+* {
+    font-family: "JetBrains Mono Nerd Font";
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+window#waybar>box {
+    background: #1a1b26;
+    border-radius: 12px;
+    padding: 2px 12px;
+    /* Un peu plus de padding pour le confort */
+}
+
+/* --- GAUCHE : MUSIQUE & HEURE --- */
+#mpris {
+    color: #9ece6a;
+    /* Un vert émeraude doux pour trancher avec le violet */
+    font-size: 13px;
+    font-weight: 700;
+    padding: 0 10px;
+    margin-right: 5px;
+}
+
+#mpris.Paused {
+    color: #565f89;
+    /* On garde le gris discret en pause */
+}
+
+#clock {
+    font-family: "Inter", "JetBrains Mono Nerd Font";
+    color: #7dcfff;
+    font-weight: 900;
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+/* --- CENTRE : WORKSPACES (KANJIS) --- */
+#workspaces button {
+    color: rgba(86, 95, 137, 0.6);
+    font-weight: 800;
+    font-size: 18px;
+    padding: 0 10px;
+    transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+    color: #c0caf5;
+}
+
+#workspaces button.active {
+    background: linear-gradient(45deg, #bb9af7 0%, #b4befe 100%);
+    color: #1a1b26;
+    padding: 2px 22px;
+    margin: 4px 4px;
+    border-radius: 15px;
+    box-shadow: 0 0 8px rgba(187, 154, 247, 0.4);
+}
+
+/* --- DROITE : SYSTÈME --- */
+/* Style commun pour les icônes de droite */
+#pulseaudio,
+#custom-updates,
+#custom-vpn,
+#custom-power {
+    padding: 0 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Couleurs spécifiques */
+#pulseaudio {
+    color: #e0af68;
+    /* Jaune */
+}
+
+#custom-updates {
+    color: #565f89;
+    /* Gris par défaut */
+    font-weight: 800;
+}
+
+#custom-updates.pending {
+    color: #9ece6a;
+    /* Vert quand MAJ dispo */
+}
+
+#custom-vpn.connected {
+    color: #9ece6a;
+    /* Vert */
+}
+
+#custom-vpn.disconnected {
+    color: #f7768e;
+    /* Rouge */
+}
+
+/* Effets au survol (Interactivité) */
+#pulseaudio:hover,
+#custom-updates:hover,
+#custom-vpn:hover {
+    color: #bb9af7;
+    /* Tout s'allume en mauve au survol */
+}
+
+#tray {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+#tray {
+    margin: 0 10px;
+    border-left: 2px solid #565f89;
+    /* Crochet gauche */
+    border-right: 2px solid #565f89;
+    /* Crochet droit */
+    padding: 0 12px;
+    border-radius: 4px;
+    /* Un très léger arrondi pour le style */
+}
+
+#custom-arch {
+    color: #bb9af7;
+    font-weight: 900;
+    font-size: 14px;
+    padding: 0 15px 0 10px;
+    margin-right: 12px;
+    border-right: 1px solid rgba(86, 95, 137, 0.3);
+
+    /* L'effet de contour et de reflet mauve que tu as choisi */
+    text-shadow:
+        /* Contour net pour la lisibilité */
+        -2px 0 rgba(0, 0, 0, 0.70),
+        2px 0 rgba(0, 0, 0, 0.70),
+        0 -2px rgba(0, 0, 0, 0.70),
+        0 2px rgba(0, 0, 0, 0.70),
+        -2px -2px rgba(0, 0, 0, 0.55),
+        2px -2px rgba(0, 0, 0, 0.55),
+        -2px 2px rgba(0, 0, 0, 0.55),
+        2px 2px rgba(0, 0, 0, 0.55),
+        /* Le halo (glow) mauve éclatant */
+        0 0 10px rgba(203, 166, 247, 0.85),
+        0 0 18px rgba(203, 166, 247, 0.45);
+}
