@@ -2,7 +2,7 @@
 
 format = """
 [](red)\
-$os\
+${custom.arch}\
 $username\
 [](bg:peach fg:red)\
 $directory\
@@ -31,8 +31,10 @@ $character"""
 palette = 'catppuccin_mocha'
 
 [os]
-disabled = false
-style = "bg:red fg:crust"
+disabled = true
+
+
+
 
 [os.symbols]
 Windows = ""
@@ -147,7 +149,7 @@ style = "bg:lavender"
 format = '[[  $time ](fg:crust bg:lavender)]($style)'
 
 [line_break]
-disabled = true
+disabled = false
 
 [character]
 disabled = false
@@ -277,3 +279,10 @@ surface0 = "#363a4f"
 base = "#24273a"
 mantle = "#1e2030"
 crust = "#181926"
+
+[custom.arch]
+command = "echo '󰣇  '"  # Le logo Arch
+when = "true"          # Toujours afficher
+style = "bg:red fg:crust bold"
+format = "[$output]($style)"
+
